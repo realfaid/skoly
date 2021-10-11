@@ -14,11 +14,21 @@
   <tbody>
   <?php foreach ($pocet_prijatych as $row) { ?>
 <tr>
-<td><?php echo $row['id']; ?></td>
-<td><?php echo $row['obor']; ?></td>
-<td><?php echo $row['skola']; ?></td>
-<td><?php echo $row['pocet']; ?></td>
-<td><?php echo $row['rok']; ?></td>
+<td><?php echo $row['id']; ?>
+<div class="filter"></div>
+</td>
+<td><?php echo $row['obor']; ?>
+<div class="filter"></div>
+</td>
+<td><?php echo $row['skola']; ?>
+<div class="filter"></div>
+</td>
+<td><?php echo $row['pocet']; ?>
+<div class="filter"></div>
+</td>
+<td><?php echo $row['rok']; ?>
+<div class="filter"></div>
+</td>
 
 </tr>
 <?php  } ?>
