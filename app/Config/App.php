@@ -23,8 +23,8 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	//public $baseURL = 'http://localhost:8080/';
-	public $baseURL = 'http://localhost:80';
+	//public $baseURL = 'http://localhost/skolyJavor';
+	public $baseURL = 'http://localhost/skoly/public';
 	/**
 	 * --------------------------------------------------------------------------
 	 * Index File

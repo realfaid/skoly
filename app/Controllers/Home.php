@@ -41,6 +41,54 @@ class Home extends BaseController
 		else echo view('headprihlaseny');
 		echo view('mapa', $data);
 	}	
+	public function zapsat_skolu(){
+		$skoly = new Skoly();
+		$data = [
+			'nazev' => $this->request->getPost('nazev'),
+			'mesto' => $this->request->getPost('mesto'),
+			'geo-lat' => $this->request->getPost('geo-lat'),
+			'geo-long' => $this->request->getPost('geo-long'),
+
+
+		];
+		$skoly->save($data);
+		return redirect()->to(base_url());
+
+		}
+	
+
+	public function pridat_skolu(){
+		$this->ionAuth = new \IonAuth\Libraries\IonAuth(); 
+		if(!$this->ionAuth->loggedIn())echo view('head');
+		else echo view('headprihlaseny');
+		echo view('pridat_skolu');
+		
+		}
+		public function uprava($id = null){
+			$skoly = new Skoly();
+			$data['skola'] = $skoly-> select('skola.id, skola.nazev as skola, mesto.nazev, geo-lat, geo-long')-> orderBy('skola.id')->join('mesto', 'skola.mesto = mesto.id')->find($id);
+			$this->ionAuth = new \IonAuth\Libraries\IonAuth(); 
+			if(!$this->ionAuth->loggedIn())echo view('head');
+			else echo view('headprihlaseny');
+			return view('uprava', $data);
+		}
+		public function zapsatUpravu($id = null){
+			$skoly = new Skoly();
+			$data = [
+				'nazev' => $this->request->getPost('nazev'),
+			'mesto' => $this->request->getPost('mesto'),
+			'geo-lat' => $this->request->getPost('geo-lat'),
+			'geo-long' => $this->request->getPost('geo-long'),
+
+			];
+			$skoly->update($id, $data);
+			return redirect()->to(base_url());
+		}
+		public function smazat($id = null){
+			$skoly = new Skoly();
+			$skoly->delete($id);
+			return redirect()->to(base_url());
+		}
 
 		}
 

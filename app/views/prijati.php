@@ -1,6 +1,6 @@
-
+<p></p>
 <div class="container">
-<table class="table">
+<table id="table_id" class="display">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -37,3 +37,10 @@
 </div>
 </body>
 </html>
+
+<script>
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+
